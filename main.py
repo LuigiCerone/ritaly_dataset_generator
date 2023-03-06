@@ -29,9 +29,9 @@ def get_subreddit(reddit: Reddit) -> Subreddits:
 
 
 def get_coffee_post(ritaly: Subreddits) -> Tuple[pd.Series, Union[Submission, None]]:
-    post_info_series: pd.Series = pd.Series()
+    post_info_series: pd.Series = pd.Series(dtype=object)
 
-    for submission in ritaly.search('flair:"caffè italia"', limit=5):
+    for submission in ritaly.search('flair:"caffè italia"', limit=5, sort='new'):
         if (
             submission.link_flair_text == "Caffè Italia"
             and pendulum.from_timestamp(submission.created_utc).day
