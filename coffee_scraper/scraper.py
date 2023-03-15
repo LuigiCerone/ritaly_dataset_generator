@@ -50,7 +50,7 @@ def get_coffee_post(
                     "post_upvote_ratio": submission.upvote_ratio,
                     "post_ups": submission.ups,
                     "post_downs": submission.downs,
-                    "post-score": submission.score,
+                    "post_score": submission.score,
                     "post_created_at": pendulum.from_timestamp(submission.created_utc),
                 }
             )
@@ -81,7 +81,6 @@ def get_all_comments(italy_coffe_submission: Submission) -> pd.DataFrame:
                 "comment_downs": comment.downs,
                 "comment_num_comments": len(comment.replies),
                 "comment_is_submitter": comment.is_submitter,
-                "comment_num_reports": comment.num_reports,
             }
         )
 
